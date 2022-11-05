@@ -1,6 +1,0 @@
-{
-    "solidity.remappings": [
-        "@openzeppelin/=/Users/sjs/Documents/SF/OpenZeppelinEx/node_modules/@openzeppelin/",
-        "./governance/=/Users/sjs/Documents/SF/OpenZeppelinEx/node_modules/@openzeppelin/contracts/governance"
-      ]
-}
