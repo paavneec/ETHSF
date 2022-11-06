@@ -6,7 +6,7 @@ const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const Web3 = createAlchemyWeb3(API_URL);
 
 const { ethers } = require("hardhat");
-const abiThingy = require("/Users/sjs/Documents/Mac22_local_projects/ETHSF/hardhat_deploy_ex/artifacts/contracts/boiler.sol/SampleContract.json");
+const abiThingy = require("/Users/sjs/Documents/Mac22_local_projects/ETHSF/artifacts/contracts/boiler.sol/SampleContract.json");
 
 async function main() {
     const [deployer] = await ethers.getSigners();
@@ -16,7 +16,7 @@ async function main() {
     const contractAddress = "0xbf7e0FE60f194605b7446c5D05B7fC894143297c";
     let contract = new ethers.Contract(contractAddress, abi, provider);
     
-    let wallet = new ethers.Wallet(process.env.MUMBAI_PRIVATE_KEY, provider);
+    let wallet = new ethers.Wallet(process.env.PRIVATE_KEY , provider);
     let contractWithSigner = contract.connect(wallet);
 
     serv_id = "1038181586232950945";

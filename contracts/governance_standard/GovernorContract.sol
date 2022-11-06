@@ -8,7 +8,10 @@ import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFractio
 import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorSettings.sol";
 // import midpoint contract
-import "../Midpoint.sol";
+
+interface IMidpoint {
+    function callMidpoint(uint64 midpointId, bytes calldata _data) external returns(uint256 requestId);
+}
 
 contract GovernorContract is
   Governor,
@@ -35,6 +38,7 @@ contract GovernorContract is
     uint256 _votingPeriod,
     uint256 _votingDelay
     // address _midpointContract
+    // address daoPoint
   )
     Governor("GovernorContract")
     GovernorSettings(
@@ -126,7 +130,15 @@ contract GovernorContract is
     bytes[] memory calldatas,
     bytes32 descriptionHash
   ) internal override(Governor, GovernorTimelockControl) {
-    super._execute(proposalId, targets, values, calldatas, descriptionHash);
+    // super._execute(proposalId, targets, values, calldatas, descriptionHash);
+    string memory SERVER_ID = "1038181586232950945";
+    string memory USER_ID = "935563232343633930";
+    address startpointAddress = 0x47a4905D4C2Eabd58abBDFEcBaeB07F1A29b660c; // midpoint's mumbai address
+    address whitelistedCallbackAddress = 0xC0FFEE4a3A2D488B138d090b8112875B90b5e6D9;
+    uint64 banMidpointID = 414;
+
+    bytes memory args = abi.encodePacked(SERVER_ID, bytes1(0x00), USER_ID, bytes1(0x00));
+    uint256 requestId = IMidpoint(startpointAddress).callMidpoint(banMidpointID, args);
   }
 
   function _cancel(

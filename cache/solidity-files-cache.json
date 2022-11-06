@@ -972,8 +972,8 @@
       ]
     },
     "/Users/sjs/Documents/Mac22_local_projects/ETHSF/contracts/governance_standard/GovernorContract.sol": {
-      "lastModificationDate": 1667730378496,
-      "contentHash": "6faf2263d2e1011777c913eae0d179ff",
+      "lastModificationDate": 1667732605981,
+      "contentHash": "4b476cd9d102bc631d3f389a4f327de5",
       "sourceName": "contracts/governance_standard/GovernorContract.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -1011,57 +1011,14 @@
         "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol",
         "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol",
         "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol",
-        "@openzeppelin/contracts/governance/extensions/GovernorSettings.sol",
-        "../Midpoint.sol"
+        "@openzeppelin/contracts/governance/extensions/GovernorSettings.sol"
       ],
       "versionPragmas": [
         "^0.8.9"
       ],
       "artifacts": [
-        "GovernorContract"
-      ]
-    },
-    "/Users/sjs/Documents/Mac22_local_projects/ETHSF/contracts/Midpoint.sol": {
-      "lastModificationDate": 1667727707642,
-      "contentHash": "590c4705e19e3e6eb5d0d327ba2736e3",
-      "sourceName": "contracts/Midpoint.sol",
-      "solcConfig": {
-        "version": "0.8.9",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.8.0"
-      ],
-      "artifacts": [
-        "IMidpoint",
-        "SampleContract"
+        "GovernorContract",
+        "IMidpoint"
       ]
     },
     "/Users/sjs/node_modules/@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol": {
@@ -1779,8 +1736,8 @@
       ]
     },
     "/Users/sjs/Documents/Mac22_local_projects/ETHSF/contracts/GovernanceToken.sol": {
-      "lastModificationDate": 1667727707639,
-      "contentHash": "4eaf1aeabe13eed716ea40f363ac4bbf",
+      "lastModificationDate": 1667735449393,
+      "contentHash": "c09ea50c5d0ebcad211f4fa4a03ed864",
       "sourceName": "contracts/GovernanceToken.sol",
       "solcConfig": {
         "version": "0.8.9",
