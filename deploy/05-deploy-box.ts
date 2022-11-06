@@ -16,7 +16,7 @@ const deployBox: DeployFunction = async function (hre: HardhatRuntimeEnvironment
     args: [],
     log: true,
     // we need to wait if on a live network so we can verify properly
-    waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
+    // waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
   })
   log(`Box at ${box.address}`)
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
