@@ -1,4 +1,0 @@
-npx hardhat  
-npm install dotenv --save
-npm install ethers
-npm install mocha
