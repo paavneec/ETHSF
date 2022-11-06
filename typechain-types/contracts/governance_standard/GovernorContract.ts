@@ -33,7 +33,6 @@ export interface GovernorContractInterface extends utils.Interface {
     "BALLOT_TYPEHASH()": FunctionFragment;
     "COUNTING_MODE()": FunctionFragment;
     "EXTENDED_BALLOT_TYPEHASH()": FunctionFragment;
-    "banUser(address,uint64,bytes)": FunctionFragment;
     "castVote(uint256,uint8)": FunctionFragment;
     "castVoteBySig(uint256,uint8,uint8,bytes32,bytes32)": FunctionFragment;
     "castVoteWithReason(uint256,uint8,string)": FunctionFragment;
@@ -44,7 +43,6 @@ export interface GovernorContractInterface extends utils.Interface {
     "getVotesWithParams(address,uint256,bytes)": FunctionFragment;
     "hasVoted(uint256,address)": FunctionFragment;
     "hashProposal(address[],uint256[],bytes[],bytes32)": FunctionFragment;
-    "midpointContract()": FunctionFragment;
     "name()": FunctionFragment;
     "onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)": FunctionFragment;
     "onERC1155Received(address,address,uint256,uint256,bytes)": FunctionFragment;
@@ -81,7 +79,6 @@ export interface GovernorContractInterface extends utils.Interface {
       | "BALLOT_TYPEHASH"
       | "COUNTING_MODE"
       | "EXTENDED_BALLOT_TYPEHASH"
-      | "banUser"
       | "castVote"
       | "castVoteBySig"
       | "castVoteWithReason"
@@ -92,7 +89,6 @@ export interface GovernorContractInterface extends utils.Interface {
       | "getVotesWithParams"
       | "hasVoted"
       | "hashProposal"
-      | "midpointContract"
       | "name"
       | "onERC1155BatchReceived"
       | "onERC1155Received"
@@ -135,14 +131,6 @@ export interface GovernorContractInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "EXTENDED_BALLOT_TYPEHASH",
     values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "banUser",
-    values: [
-      PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BytesLike>
-    ]
   ): string;
   encodeFunctionData(
     functionFragment: "castVote",
@@ -220,10 +208,6 @@ export interface GovernorContractInterface extends utils.Interface {
       PromiseOrValue<BytesLike>[],
       PromiseOrValue<BytesLike>
     ]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "midpointContract",
-    values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(
@@ -373,7 +357,6 @@ export interface GovernorContractInterface extends utils.Interface {
     functionFragment: "EXTENDED_BALLOT_TYPEHASH",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "banUser", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "castVote", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "castVoteBySig",
@@ -400,10 +383,6 @@ export interface GovernorContractInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "hasVoted", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "hashProposal",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "midpointContract",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
@@ -704,13 +683,6 @@ export interface GovernorContract extends BaseContract {
 
     EXTENDED_BALLOT_TYPEHASH(overrides?: CallOverrides): Promise<[string]>;
 
-    banUser(
-      _address: PromiseOrValue<string>,
-      serverID: PromiseOrValue<BigNumberish>,
-      userID: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
-
     castVote(
       proposalId: PromiseOrValue<BigNumberish>,
       support: PromiseOrValue<BigNumberish>,
@@ -786,8 +758,6 @@ export interface GovernorContract extends BaseContract {
       descriptionHash: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
-
-    midpointContract(overrides?: CallOverrides): Promise<[string]>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
@@ -939,13 +909,6 @@ export interface GovernorContract extends BaseContract {
 
   EXTENDED_BALLOT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
-  banUser(
-    _address: PromiseOrValue<string>,
-    serverID: PromiseOrValue<BigNumberish>,
-    userID: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
-
   castVote(
     proposalId: PromiseOrValue<BigNumberish>,
     support: PromiseOrValue<BigNumberish>,
@@ -1021,8 +984,6 @@ export interface GovernorContract extends BaseContract {
     descriptionHash: PromiseOrValue<BytesLike>,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
-
-  midpointContract(overrides?: CallOverrides): Promise<string>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
@@ -1174,13 +1135,6 @@ export interface GovernorContract extends BaseContract {
 
     EXTENDED_BALLOT_TYPEHASH(overrides?: CallOverrides): Promise<string>;
 
-    banUser(
-      _address: PromiseOrValue<string>,
-      serverID: PromiseOrValue<BigNumberish>,
-      userID: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
     castVote(
       proposalId: PromiseOrValue<BigNumberish>,
       support: PromiseOrValue<BigNumberish>,
@@ -1256,8 +1210,6 @@ export interface GovernorContract extends BaseContract {
       descriptionHash: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
-
-    midpointContract(overrides?: CallOverrides): Promise<string>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -1524,13 +1476,6 @@ export interface GovernorContract extends BaseContract {
 
     EXTENDED_BALLOT_TYPEHASH(overrides?: CallOverrides): Promise<BigNumber>;
 
-    banUser(
-      _address: PromiseOrValue<string>,
-      serverID: PromiseOrValue<BigNumberish>,
-      userID: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
-
     castVote(
       proposalId: PromiseOrValue<BigNumberish>,
       support: PromiseOrValue<BigNumberish>,
@@ -1606,8 +1551,6 @@ export interface GovernorContract extends BaseContract {
       descriptionHash: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
-
-    midpointContract(overrides?: CallOverrides): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1756,13 +1699,6 @@ export interface GovernorContract extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    banUser(
-      _address: PromiseOrValue<string>,
-      serverID: PromiseOrValue<BigNumberish>,
-      userID: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
-
     castVote(
       proposalId: PromiseOrValue<BigNumberish>,
       support: PromiseOrValue<BigNumberish>,
@@ -1838,8 +1774,6 @@ export interface GovernorContract extends BaseContract {
       descriptionHash: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
-
-    midpointContract(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 

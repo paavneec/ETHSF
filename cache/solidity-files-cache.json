@@ -972,8 +972,8 @@
       ]
     },
     "/Users/sjs/Documents/Mac22_local_projects/ETHSF/contracts/governance_standard/GovernorContract.sol": {
-      "lastModificationDate": 1667727707643,
-      "contentHash": "447ac5860b55bcbdc4c8c14d23dbd0f3",
+      "lastModificationDate": 1667730378496,
+      "contentHash": "6faf2263d2e1011777c913eae0d179ff",
       "sourceName": "contracts/governance_standard/GovernorContract.sol",
       "solcConfig": {
         "version": "0.8.9",
