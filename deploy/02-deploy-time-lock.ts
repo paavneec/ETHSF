@@ -15,7 +15,7 @@ const deployTimeLock: DeployFunction = async function (hre: HardhatRuntimeEnviro
     args: [MIN_DELAY, [], []],
     log: true,
     // we need to wait if on a live network so we can verify properly
-    waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
+    // waitConfirmations: networkConfig[network.name].blockConfirmations || 1,
   })
   log(`TimeLock at ${timeLock.address}`)
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {

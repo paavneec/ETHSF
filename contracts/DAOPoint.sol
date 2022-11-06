@@ -74,7 +74,7 @@ contract DAOPoint is Ownable{
    function callback(uint256 _requestId, uint64 _midpointId) public {
        // Only allow the verified callback address to submit information for your midpoint.
        require(tx.origin == whitelistedCallbackAddress, "Invalid callback address");
-       require(midpointID == _midpointId, "Invalid Midpoint ID");
+    //    require(midpointID == _midpointId, "Invalid Midpoint ID");
 
        // Your callback function here
        
